@@ -1,13 +1,4 @@
 <h2>Players</h2>
-<div *ngIf="selectedPlayer">
-  <h2>{{ selectedPlayer.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedPlayer.id}}</div>
-  <div>
-      <label>name:
-        <input [(ngModel)]="selectedPlayer.name" placeholder="name">
-      </label>
-  </div>
-</div>
 <ul>
   <li *ngFor="let player of players" 
     (click)="onSelect(player)"
@@ -16,3 +7,5 @@
     <span> {{player.name}} </span>
   </li>
 </ul>
+
+<app-player-detail [player]="selectedPlayer"></app-player-detail>
