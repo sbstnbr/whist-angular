@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { Player } from '../player';
-import { PLAYERS } from '../mock-players';
+import { PlayerService } from '../player.service';
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
@@ -15,17 +15,22 @@ import { PLAYERS } from '../mock-players';
 
 export class PlayersComponent implements OnInit {
 
-  players = PLAYERS;
+  players: Player[];
 
   selectedPlayer: Player;
+
+  getPlayers(): void {
+    this.players = this.playerService.getPlayers();
+  }
 
   onSelect(player: Player): void {
     this.selectedPlayer = player;
   }
 
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
+    this.getPlayers();
   }
 
 }
