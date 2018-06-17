@@ -20,7 +20,8 @@ export class PlayersComponent implements OnInit {
   selectedPlayer: Player;
 
   getPlayers(): void {
-    this.players = this.playerService.getPlayers();
+    this.playerService.getPlayers()
+        .subscribe(players => this.players = players);
   }
 
   onSelect(player: Player): void {
