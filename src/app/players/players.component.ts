@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-
+import { Player } from '../player';
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
@@ -14,7 +14,10 @@ import { NgModule } from '@angular/core';
 
 export class PlayersComponent implements OnInit {
 
-  player: 'Seb';
+  player: Player = {
+    id: 1,
+    name: 'Seb'
+  };
 
   constructor() { }
 
