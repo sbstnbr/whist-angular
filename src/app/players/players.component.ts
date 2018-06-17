@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { Player } from '../player';
+import { PLAYERS } from '../mock-players';
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
@@ -14,10 +15,13 @@ import { Player } from '../player';
 
 export class PlayersComponent implements OnInit {
 
-  player: Player = {
-    id: 1,
-    name: 'Seb'
-  };
+  players = PLAYERS;
+
+  selectedPlayer: Player;
+
+  onSelect(player: Player): void {
+    this.selectedPlayer = player;
+  }
 
   constructor() { }
 
